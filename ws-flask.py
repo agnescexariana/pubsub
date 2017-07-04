@@ -11,33 +11,6 @@ db = MySQLdb.connect(host="127.0.0.1",
                            passwd = "",
                            db = "rumahsakit")
 
-# data_pasien2 = [{"id_pasien" : "5",
-# 	"nama": "agnesss",
-# 	"gender" : "Perempuan",
-# 	"agama" : "Kristen",
-# 	"tgl" : "26",
-# 	"bulan" : "Maret",
-# 	"tahun" : "1994",
-# 	"email" : "agnes@gmail.com",
-# 	"tlp" : "082125356750",
-# 	"alamat_post" : "Jalan setia",
-# 	"darah" : "B",
-# 	"riwayat" : "Asma"},
-	
-# 	{"id_pasien" : "2",
-# 	"nama": "agus",
-# 	"gender" : "Laki-laki",
-# 	"agama" : "Islam",
-# 	"tgl" : "20",
-# 	"bulan" : "Maret",
-# 	"tahun" : "1989",
-# 	"email" : "agus@gmail.com",
-# 	"tlp" : "08131356750",
-# 	"alamat_post" : "Jalan bendungan",
-# 	"darah" : "A",
-# 	"riwayat" : "Alergi"}]
-   
-
 @app.route('/', methods=['GET'])
 def index():
     cur = db.cursor()
@@ -173,8 +146,6 @@ def delete_pasien():
 	print ">> Data Successfully Deleted"
 	cur.close
 	return "Data Successfully Deleted"	
-
-
 
 if __name__ == "__main__":
     client = mqtt.Client("pub1", clean_session=False)
