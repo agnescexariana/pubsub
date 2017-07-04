@@ -1,1 +1,2 @@
-# pubsub
+# Protokol Publish Subscribe
+Publish-Subscribe merupakan salah satu model sistem terdistribusi yang dilakukan antara publisher dengan subscriber dimana broker sebagai perantaranya. Publisher berperan sebagai pengirim pesan dimana proses ini disebut publish  dan subscriber sebagai penerima pesan dimana proses ini disebut subscribe. Sementara broker berfungsi sebagai perantara antara publisher dan subscriber, tugasnya untuk melanjutkan pesan dari publisher ke subscriber. Proses publish dan subscribe ini dilakukan dalam kondisi publisher dan subscriber sudah membangun koneksi secara eksplisit dengan broker (Hunkeler & Truong, 2012). 
