@@ -11,21 +11,6 @@ def on_subscribe(client, userdata, mid, granted_qos):
 	print("Subscribed: "+" "+str(granted_qos))
 
 def on_message(client, userdata, message):
-    # # PENGUJIAN
-    # arrived_time = time.time()
-    # data = json.loads(message.payload)
-    # delay = arrived_time - data['start_time']
-    # # print("Received message on topic : " + message.topic + " | publish with QoS : " + str(message.qos) + " Delay : " + str(delay))#utk pengujian variasi ukuran data
-    # print "Received message Delay : "+str(delay)#untuk pengujian standard
-    
-    # namadb="rumahsakit"+userdata
-    # d = MySQLdb.connect(host="127.0.0.1",
-    #                             user = "root",
-    #                             passwd = "",
-    #                             db = ""+str(namadb))
-    
-
- ############################################################
     print(">> Received message : " + str(message.payload))
     print(">> On topic : " + message.topic + " with QoS : " + str(message.qos))
     data = json.loads(message.payload) #parse json
@@ -100,16 +85,6 @@ def h():
     client.on_message = on_message
     client.loop_forever()
 
-	#Untuk Pengujian
-def new_threads(id):
-    client = mqtt.Client("subb"+str(id), userdata=str(id), clean_session=True)
-    client.on_connect = on_connect
-    client.connect("127.0.0.1", 1883)
-    client.subscribe("pubsub/#", qos=1)
-    client.on_subscribe = on_subscribe
-    client.on_message = on_message
-    client.loop_forever()
-
 try:
     input_client = 0
     input_client = input("Input ID Client : ")
@@ -122,15 +97,3 @@ try:
 
 except KeyboardInterrupt:
     print ("::Connection Closed") 
-
-#     # START_THREAD
-#     input_client = input("Input Subscriber : ")
-#     for i in range (input_client):
-#         # string="string"+str(i)
-#         thread.start_new_thread( new_threads, (i,))
-#         time.sleep(0.1)     
-# except:
-# 	print "Error: unable to start thread"
-
-# while 1:
-# 	pass
